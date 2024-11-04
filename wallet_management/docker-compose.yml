@@ -5,9 +5,9 @@ services:
     image: postgres:13
     restart: always
     environment:
-      POSTGRES_DB: your_database
-      POSTGRES_USER: your_user
-      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: database
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -17,7 +17,7 @@ services:
     build: .
     restart: always
     environment:
-      - DATABASE_URL=postgres://your_user:your_password@db:5432/your_database
+      - DATABASE_URL=postgres://user:password@db:5432/database
     ports:
       - "8000:8000"
     depends_on:
